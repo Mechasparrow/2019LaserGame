@@ -8,6 +8,11 @@ public class LaserBehavior : MonoBehaviour
     public Vector2 offsetDir;
     public float mag;
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("test");
+    }
+
     // Update is called once per frame
     void Update()
     {
