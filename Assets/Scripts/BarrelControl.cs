@@ -71,8 +71,9 @@ public class BarrelControl : MonoBehaviour
         laser.SetActive(false);
 
         //Update position to the barrel
-        laser.transform.position = transform.position;
-
+        Vector3 laserPosition = transform.position;
+        laserPosition.z = laser.transform.position.z;
+        laser.transform.position = laserPosition;
 
         laser.SetActive(true);
 
