@@ -5,8 +5,14 @@ using UnityEngine;
 public class BarrelControl : MonoBehaviour
 {
 
+    //upper and lower bounds for movement
     public float upperBound;
     public float lowerBound;
+
+    public AudioSource pew;
+
+    //The laser
+    public GameObject laserObject;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +27,7 @@ public class BarrelControl : MonoBehaviour
 
         if (shouldShoot())
         {
-            Shoot()
+            Shoot();
         }
     }
 
@@ -56,6 +62,21 @@ public class BarrelControl : MonoBehaviour
     //handling shooting
     void Shoot()
     {
+        //Debug
+        Debug.Log("Shooting!");
+
+
+        //Spawn the laser
+        GameObject laser = Instantiate(laserObject);
+        laser.SetActive(false);
+
+        //Update position to the barrel
+        laser.transform.position = transform.position;
+
+
+        laser.SetActive(true);
+
+        pew.Play();
 
     }
 
